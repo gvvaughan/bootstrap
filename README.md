@@ -39,10 +39,28 @@ implementation stages.
 Usage
 -----
 
-Use `./bootstrap` to run autotools (you can customize the behaviour of
-this script with a `bootstrap.conf` file, as described in the
-`bootstrap.texi` documentation).
+There are two ways to incorporate this bootstrap into your own projects:
+
+1. If your project already uses [GNU Gnulib], then you can add this
+   entire repository as a submodule in the `gl` directory, and use that
+   as an override directory by setting `local_gl_dir=gl` in your project's
+   `bootstrap.conf`.  Initialise your actual bootstrap script from the
+   subproject with `gl/build-aux/inline-source gl/build-aux/bootstrap.in > bootstrap`.
+   The resulting script will then keep track of changes to the
+   subproject and warn you of upstream changes.
+
+2. You can simply copy the top-level `bootstrap` script (which is
+   pregenerated whenever the constituent scripts are updated) directly
+   into the top-level directory of your project, and update it manually
+   whenever necessary.
+
+Either way, once you have installed `bootstrap`, use it to run the
+appropriate project-specific autotools and customisations with
+`./bootstrap`.
+
+You can customize the behaviour of this script with a `bootstrap.conf` file,
+as described in the `bootstrap.texi` documentation, and the bootstrap
+script itself.
 
 
 [gnu gnulib]: http://gnu.org/s/gnulib
-[slingshot]:  http://github.org/gvvaughan/slingshot
