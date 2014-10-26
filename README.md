@@ -43,9 +43,13 @@ There are two ways to incorporate this bootstrap into your own projects:
 
 1. If your project already uses [GNU Gnulib], then you can add this
    entire repository as a submodule in the `gl` directory, and use that
-   as an override directory by setting `local_gl_dir=gl` in your project's
-   `bootstrap.conf`.  Initialise your actual bootstrap script from the
-   subproject with `gl/build-aux/inline-source gl/build-aux/bootstrap.in > bootstrap`.
+   as an override directory by setting `local_gl_dir=gl`, and adding
+   `bootstrap` to `gnulib_modules` in your project's `bootstrap.conf`.
+
+   Initialise your actual bootstrap script from the subproject with:
+
+      gl/build-aux/inline-source gl/build-aux/bootstrap.in > bootstrap
+
    The resulting script will then keep track of changes to the
    subproject and warn you of upstream changes.
 
