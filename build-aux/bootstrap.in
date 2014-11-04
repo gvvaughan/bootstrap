@@ -232,7 +232,7 @@ vc_ignore=
 . `echo "$0" |${SED-sed} 's|[^/]*$||'`"extract-trace"
 
 # Set a version string for *this* script.
-scriptversion=2014-10-19.23; # UTC
+scriptversion=2014-11-04.13; # UTC
 
 
 ## ------------------- ##
@@ -1215,7 +1215,7 @@ func_require_buildreq_patch ()
       # The ugly find invocation is necessary to exit with non-zero
       # status for old find binaries that don't support -exec fully.
       if test ! -d "$local_gl_dir" \
-          || find "$local_gl_dir" -name *.diff -exec false {} \; ; then :
+          || find "$local_gl_dir" -name "*.diff" -exec false {} \; ; then :
       else
           func_append buildreq 'patch - http://www.gnu.org/s/patch
 '
