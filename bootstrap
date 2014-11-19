@@ -4755,7 +4755,7 @@ func_check_tool ()
       ;;
     *)
       save_IFS=$IFS
-      IFS=:
+      IFS=${PATH_SEPARATOR-:}
       for _G_check_tool_path in $PATH; do
         IFS=$save_IFS
 	if test -x "$_G_check_tool_path/$1"; then
