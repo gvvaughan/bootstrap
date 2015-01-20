@@ -166,7 +166,7 @@ func_find_tool ()
       for _G_prog
       do
         _G_find_tool_save_IFS=$IFS
-	IFS=:
+        IFS=${PATH_SEPARATOR-:}
 	for _G_dir in $PATH; do
 	  IFS=$_G_find_tool_save_IFS
 	  _G_progpath=$_G_dir/$_G_prog
