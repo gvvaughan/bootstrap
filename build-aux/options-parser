@@ -169,7 +169,7 @@ func_run_hooks ()
     eval _G_hook_fns=\$$1_hooks; shift
 
     for _G_hook in $_G_hook_fns; do
-      eval $_G_hook '"$@"'
+      eval $_G_hook '${1+"$@"}'
 
       # store returned options list back into positional
       # parameters for next 'cmd' execution.
